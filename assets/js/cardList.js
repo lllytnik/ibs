@@ -1,4 +1,10 @@
-function createProductCards(products, productsList) {
+import { getItems } from './api.js';
+import { BASE_URL } from './constant.js';
+
+const products = await getItems();
+const productsList = document.querySelector('.products-list');
+
+function createProductCards() {
     for (const product of products) {
         const article = document.createElement('article');
         const likeButton = document.createElement('button');
@@ -13,7 +19,7 @@ function createProductCards(products, productsList) {
         likeImage.src = './assets/images/like.svg';
         likeImage.alt = 'like';
         productImage.className = 'product-card__image';
-        productImage.src = product.picture.path;
+        productImage.src = BASE_URL + product.picture.path;
         productImage.alt = product.picture.alt;
         productLink.className = 'product-card__link';
         productLink.href = 'product-details.html?id=' + product.id;
@@ -32,4 +38,4 @@ function createProductCards(products, productsList) {
     }
 }
 
-
+createProductCards(products, productsList);

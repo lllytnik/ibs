@@ -1,111 +1,116 @@
-const productDetailsImage = document.createElement('div');
-productDetailsImage.classList.add('product-details__image');
+import { getItemById } from './api.js';
+import { BASE_URL } from './constant.js';
 
-const productImage = document.createElement('img');
-// productImage.src = product.picture.path;
-// productImage.alt = product.picture.alt;
-productDetailsImage.appendChild(productImage);
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
 
+const product = await getItemById(id);
 
-const productDetailsInfo = document.createElement('div');
-productDetailsInfo.classList.add('product-details__info');
+function createProductDetail() {
+    const productDetailsImage = document.createElement('div');
+    productDetailsImage.classList.add('product-details__image');
 
-const productTitle = document.createElement('h1');
-productTitle.classList.add('product-details__title');
-// productTitle.textContent = product.name;
+    const productImage = document.createElement('img');
+    productImage.src = BASE_URL + product.picture.path;
+    productImage.alt = product.picture.alt;
+    productDetailsImage.appendChild(productImage);
 
-const productDescription = document.createElement('p');
-productDescription.classList.add('product-details__description');
-//  productDescription.textContent = product.info;
+    const productDetailsInfo = document.createElement('div');
+    productDetailsInfo.classList.add('product-details__info');
 
-const productSubTitle = document.createElement('h2');
-productSubTitle.classList.add('product-details__sub-title');
-productSubTitle.textContent = 'Details';
+    const productTitle = document.createElement('h1');
+    productTitle.classList.add('product-details__title');
+    productTitle.textContent = product.name;
 
-const productDetails = document.createElement('p');
-productDetails.classList.add('product-details__detal');
-// productDetails.textContent = product.details;
+    const productDescription = document.createElement('p');
+    productDescription.classList.add('product-details__description');
+    productDescription.textContent = product.info;
 
-const productDetailsInner = document.createElement('div');
-productDetailsInner.classList.add('product-details__inner');
+    const productSubTitle = document.createElement('h2');
+    productSubTitle.classList.add('product-details__sub-title');
+    productSubTitle.textContent = 'Details';
 
+    const productDetails = document.createElement('p');
+    productDetails.classList.add('product-details__detal');
+    productDetails.textContent = product.details;
 
-const productDetailsWrapperPrice = document.createElement('div');
-productDetailsWrapperPrice.classList.add('product-details__wrapper-price');
+    const productDetailsInner = document.createElement('div');
+    productDetailsInner.classList.add('product-details__inner');
 
-const productDetailsPrice = document.createElement('div');
-productDetailsPrice.classList.add('product-details__price');
-productDetailsPrice.innerHTML = '$<span id="result">129</span>';
+    const productDetailsWrapperPrice = document.createElement('div');
+    productDetailsWrapperPrice.classList.add('product-details__wrapper-price');
 
+    const productDetailsPrice = document.createElement('div');
+    productDetailsPrice.classList.add('product-details__price');
+    productDetailsPrice.innerHTML = '$<span id="result">129</span>';
 
-const cartCounter = document.createElement('div');
-cartCounter.classList.add('cart-counter');
+    const cartCounter = document.createElement('div');
+    cartCounter.classList.add('cart-counter');
 
-const cartDecrementButton = document.createElement('button');
-cartDecrementButton.classList.add('cart-counter__btn', 'minus');
-cartDecrementButton.setAttribute('onclick', 'decrement()');
+    const cartDecrementButton = document.createElement('button');
+    cartDecrementButton.classList.add('cart-counter__btn', 'minus');
+    cartDecrementButton.setAttribute('onclick', 'decrement()');
 
-const decrementImage = document.createElement('img');
-decrementImage.src = './assets/images/minus.svg';
-decrementImage.alt = 'minus';
-cartDecrementButton.appendChild(decrementImage);
+    const decrementImage = document.createElement('img');
+    decrementImage.src = './assets/images/minus.svg';
+    decrementImage.alt = 'minus';
+    cartDecrementButton.appendChild(decrementImage);
 
-const cartCounterValue = document.createElement('span');
-cartCounterValue.classList.add('cart-counter__value');
-cartCounterValue.id = 'counter';
-cartCounterValue.textContent = '1';
+    const cartCounterValue = document.createElement('span');
+    cartCounterValue.classList.add('cart-counter__value');
+    cartCounterValue.id = 'counter';
+    cartCounterValue.textContent = '1';
 
-const cartIncrementButton = document.createElement('button');
-cartIncrementButton.classList.add('cart-counter__btn', 'plus');
-cartIncrementButton.setAttribute('onclick', 'increment()');
+    const cartIncrementButton = document.createElement('button');
+    cartIncrementButton.classList.add('cart-counter__btn', 'plus');
+    cartIncrementButton.setAttribute('onclick', 'increment()');
 
-const incrementImage = document.createElement('img');
-incrementImage.src = './assets/images/plus.svg';
-incrementImage.alt = 'plus';
-cartIncrementButton.appendChild(incrementImage);
+    const incrementImage = document.createElement('img');
+    incrementImage.src = './assets/images/plus.svg';
+    incrementImage.alt = 'plus';
+    cartIncrementButton.appendChild(incrementImage);
 
-cartCounter.appendChild(cartDecrementButton);
-cartCounter.appendChild(cartCounterValue);
-cartCounter.appendChild(cartIncrementButton);
+    cartCounter.appendChild(cartDecrementButton);
+    cartCounter.appendChild(cartCounterValue);
+    cartCounter.appendChild(cartIncrementButton);
 
-productDetailsWrapperPrice.appendChild(productDetailsPrice);
-productDetailsWrapperPrice.appendChild(cartCounter);
+    productDetailsWrapperPrice.appendChild(productDetailsPrice);
+    productDetailsWrapperPrice.appendChild(cartCounter);
 
+    const productDetailsWrapperButton = document.createElement('div');
+    productDetailsWrapperButton.classList.add('product-details__wrapper-button');
 
-const productDetailsWrapperButton = document.createElement('div');
-productDetailsWrapperButton.classList.add('product-details__wrapper-button');
+    const addCartButton = document.createElement('button');
+    addCartButton.classList.add('product-details__button');
+    addCartButton.textContent = 'Add to cart';
 
-const addCartButton = document.createElement('button');
-addCartButton.classList.add('product-details__button');
-addCartButton.textContent = 'Add to cart';
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('product-card__like');
 
-const likeButton = document.createElement('button');
-likeButton.classList.add('product-card__like');
+    const likeImage = document.createElement('img');
+    likeImage.src = './assets/images/like.svg';
+    likeImage.alt = 'like';
+    likeButton.appendChild(likeImage);
 
-const likeImage = document.createElement('img');
-likeImage.src = './assets/images/like.svg';
-likeImage.alt = 'like';
-likeButton.appendChild(likeImage);
+    productDetailsWrapperButton.appendChild(addCartButton);
+    productDetailsWrapperButton.appendChild(likeButton);
 
-productDetailsWrapperButton.appendChild(addCartButton);
-productDetailsWrapperButton.appendChild(likeButton);
+    productDetailsInner.appendChild(productDetailsWrapperPrice);
+    productDetailsInner.appendChild(productDetailsWrapperButton);
 
-productDetailsInner.appendChild(productDetailsWrapperPrice);
-productDetailsInner.appendChild(productDetailsWrapperButton);
+    productDetailsInfo.appendChild(productTitle);
+    productDetailsInfo.appendChild(productDescription);
+    productDetailsInfo.appendChild(productSubTitle);
+    productDetailsInfo.appendChild(productDetails);
+    productDetailsInfo.appendChild(productDetailsInner);
 
-productDetailsInfo.appendChild(productTitle);
-productDetailsInfo.appendChild(productDescription);
-productDetailsInfo.appendChild(productSubTitle);
-productDetailsInfo.appendChild(productDetails);
-productDetailsInfo.appendChild(productDetailsInner);
+    const productDetailsContainer = document.createElement('div');
+    productDetailsContainer.classList.add('product-details');
 
+    productDetailsContainer.appendChild(productDetailsImage);
+    productDetailsContainer.appendChild(productDetailsInfo);
+    const productDetailsElement = document.getElementById('product-render');
+    productDetailsElement.appendChild(productDetailsContainer);
+}
 
-
-const productDetailsContainer = document.createElement('div');
-productDetailsContainer.classList.add('product-details');
-
-
-productDetailsContainer.appendChild(productDetailsImage);
-productDetailsContainer.appendChild(productDetailsInfo);
-const productDetailsElement = document.getElementById('product-render');
-productDetailsElement.appendChild(productDetailsContainer);
+createProductDetail(product);

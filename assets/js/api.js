@@ -1,27 +1,24 @@
-const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
+import { BASE_URL } from './constant.js';
 
-if (id) {
-    fetch(`http://localhost:3006/item/${id}`)
-        .then(res => res.json())
-        .then(data => {
-            const product = data.content;
-            productTitle.textContent = product.name;
-            productImage.src = product.picture.path;
-            productImage.alt = product.picture.alt;
-            productDescription.textContent = product.info;
-            productDetails.textContent = product.details;
-        })
-        .then(obj => console.log(obj))
-        .catch(error => console.error(error));
-} else {
-    fetch('http://localhost:3006/item')
-        .then(res => res.json())
-        .then(data => {
-            const products = data.content;
-            const productsList = document.querySelector('.products-list');
-            createProductCards(products, productsList);
-        })
-        .catch(error => console.error(error));
+
+async function getItemById(id) {
+    try {
+        const response = await fetch(`${BASE_URL}/item/${id}`);
+        const data = await response.json();
+        return data.content;
+    } catch (error) {
+        console.log(error.message);
+    }
 }
-console.log(id)
+
+async function getItems() {
+    try {
+        const response = await fetch(`${BASE_URL}/item`);
+        const data = await response.json();
+        return data.content;
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+export { getItems, getItemById };
