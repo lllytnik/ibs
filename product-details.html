@@ -7,15 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style/product-details.css">
     <link rel="stylesheet" href="./assets/style/style.css">
+    <script type="module" defer src="./assets/js/detail.js"></script>
+    <script defer src="./assets/js/search.js"></script>
     <title>detals</title>
 </head>
 
 <body>
     <header class="header">
-        <div class="search">
-            <button type="submit"><img src="./assets/images/search.svg" alt="search"></button>
-            <input type="text" placeholder="Search products">
-        </div>
+        <form class="search-form ">
+            <button type="submit" class="search-button"><img src="./assets/images/search.svg" alt="search"></button>
+            <input type="text" class="search-input" placeholder="Search products">
+        </form>
         <div class="header__actions">
             <button class="header__cart">
                 <img src="./assets/images/cart.svg" alt="cart">
@@ -25,53 +27,9 @@
             </button>
         </div>
     </header>
-    <div class="product-details">
-
-        <div class="product-details__image">
-            <img src="./assets/images/product.png" alt="Название товара">
-        </div>
-        <div class="product-details__info">
-            <h1 class="product-details__title">G Home</h1>
-            <p class="product-details__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                ultrices ante sit amet mollis luctus. Morbi semper, tellus in finibus tristique, purus odio sodales
-                sem,
-                vitae dignissim enim metus vel purus. Quisque a rutrum leo. Phasellus quis ex sed magna finibus
-                convallis varius luctus justo. Nullam et sapien vel magna ultrices pulvinar. Nunc felis ante,
-                lobortis
-                eget imperdiet in, iaculis at justo. Etiam libero nisl, hendrerit vitae ultricies vitae, pharetra a
-                est.
-                Vivamus vestibulum quam sit amet facilisis consequat. Curabitur sollicitudin arcu arcu, pretium
-                aliquam
-                nibh hendrerit a. Donec diam massa, tempus sed pulvinar a, fermentum et orci.</p>
-            <h2 class="product-details__sub-title">Details</h2>
-            <p class="product-details__detal">Nulla et mauris sed elit semper pretium a quis augue. Fusce tempus est
-                ex,
-                eu porttitor nulla auctor et. Maecenas eget quam non risus porta elementum. Pellentesque posuere
-                augue
-                in malesuada fermentum. Maecenas vitae viverra mauris. Suspendisse a cursus libero. Pellentesque
-                vitae
-                purus eget lectus lobortis laoreet sed sollicitudin diam. Pellentesque pellentesque eu justo at
-                ullamcorper. Quisque quis egestas magna. Vestibulum et felis id nisi dapibus viverra vel vitae nisl.
-                Morbi lobortis nunc turpis, sed tincidunt quam cursus nec. Morbi eget lorem dolor.</p>
-            <div class="product-details__inner">
-                <div class="product-details__wrapper-price">
-                    <div class="product-details__price">$<span id="result">129</span></div>
-                    <div class="cart-counter">
-                        <button onclick="decrement()" class="cart-counter__btn minus"><img
-                                src="./assets/images/minus.svg" alt="minus"></button>
-                        <span id="counter" class="cart-counter__value">1</span>
-                        <button onclick="increment()" class="cart-counter__btn plus"><img src="./assets/images/plus.svg"
-                                alt="plus"></button>
-                    </div>
-                </div>
-                <div class="product-details__wrapper-button">
-                    <button class="product-details__button">Add to cart</button>
-                    <button class="product-card__like"><img src="./assets/images/like.svg" alt="like"></button>
-                </div>
-            </div>
-        </div>
+    <div id="product-render" class="product-render">
     </div>
-    <script src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
 </body>
 
 </html>

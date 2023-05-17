@@ -9,7 +9,7 @@ body {
     padding: 25px;
 }
 
-.search {
+.search-form {
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -18,17 +18,17 @@ body {
     position: relative;
 }
 
-.search input {
+.search-form input {
     border: none;
     background-color: transparent;
 }
 
-.search input:focus {
+.search-form input:focus {
     outline: none;
     border-bottom: 1px solid #e97f03;
 }
 
-.search button {
+.search-form button {
     background-color: transparent;
     border: none;
     cursor: pointer;
