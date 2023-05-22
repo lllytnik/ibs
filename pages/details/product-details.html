@@ -5,31 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style/product-details.css">
-    <link rel="stylesheet" href="./assets/style/style.css">
-    <script type="module" defer src="./assets/js/detail.js"></script>
-    <script defer src="./assets/js/search.js"></script>
     <title>detals</title>
 </head>
 
 <body>
     <header class="header">
         <form class="search-form ">
-            <button type="submit" class="search-button"><img src="./assets/images/search.svg" alt="search"></button>
+            <button type="submit" class="search-button"><img src='<%= require("/src/assets/images/search.svg") %>'
+                    alt="search">
+            </button>
+
             <input type="text" class="search-input" placeholder="Search products">
         </form>
         <div class="header__actions">
             <button class="header__cart">
-                <img src="./assets/images/cart.svg" alt="cart">
+                <img src="<%= require('/src/assets/images/cart.svg') %>" alt="cart" />
+
             </button>
             <button class="header__account">
-                <img src="./assets/images/user.svg" alt="user">
+                <img src="<%= require('/src/assets/images/user.svg') %>" alt="user" />
+
+
             </button>
         </div>
     </header>
     <div id="product-render" class="product-render">
     </div>
-    <script type="module" src="./assets/js/main.js"></script>
 </body>
 
 </html>

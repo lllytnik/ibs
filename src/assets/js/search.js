@@ -1,11 +1,11 @@
 const searchForm = document.querySelector('.search-form');
-searchForm.addEventListener('submit', handleSearch);
+const searchInput = document.querySelector('.search-input');
+let timeoutId;
+
+searchInput.addEventListener('input', debounce(handleSearch, 1000));
 
 function handleSearch(event) {
-    event.preventDefault();
-
-    const searchInput = document.querySelector('.search-input');
-    const searchTerm = searchInput.value.toLowerCase();
+    const searchTerm = event.target.value.toLowerCase();
     const products = Array.from(document.querySelectorAll('.product-card'));
 
     for (const product of products) {
@@ -19,3 +19,13 @@ function handleSearch(event) {
         }
     }
 }
+
+function debounce(func, delay) {
+    return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
