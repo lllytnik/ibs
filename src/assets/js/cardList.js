@@ -1,6 +1,8 @@
 import { getItems } from './api.js';
 import { BASE_URL } from './constant.js';
 
+import ImageLike from '../images/like.png';
+
 const products = await getItems();
 const productsList = document.querySelector('.products-list');
 
@@ -18,7 +20,7 @@ export async function createProductCards() {
 
         article.className = 'product-card';
         likeButton.className = 'products-card__like';
-        likeImage.src = "../images/like.png";
+        likeImage.src = ImageLike;
         likeImage.alt = 'like';
         productImage.className = 'product-card__image';
         productImage.src = BASE_URL + product.picture.path;

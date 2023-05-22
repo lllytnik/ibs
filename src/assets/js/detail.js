@@ -1,6 +1,16 @@
 import { getItemById } from './api.js';
 import { BASE_URL } from './constant.js';
 
+
+import ImageMinus from '../images/minus.svg';
+import ImagePlus from '../images/plus.svg';
+import ImageLike from '../images/favorite.svg';
+
+
+import { increment } from './main';
+
+
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
@@ -8,6 +18,7 @@ const product = await getItemById(id);
 
 
 export function createProductDetail() {
+
     const productDetailsImage = document.createElement('div');
     productDetailsImage.classList.add('product-details__image');
 
@@ -53,7 +64,7 @@ export function createProductDetail() {
     cartDecrementButton.setAttribute('onclick', 'decrement()');
 
     const decrementImage = document.createElement('img');
-    decrementImage.src = './assets/images/minus.svg';
+    decrementImage.src = ImageMinus;
     decrementImage.alt = 'minus';
     cartDecrementButton.appendChild(decrementImage);
 
@@ -65,10 +76,14 @@ export function createProductDetail() {
     const cartIncrementButton = document.createElement('button');
     cartIncrementButton.classList.add('cart-counter__btn', 'plus');
     cartIncrementButton.setAttribute('onclick', 'increment()');
+    cartIncrementButton.addEventListener('click', increment)
+
+
+
 
 
     const incrementImage = document.createElement('img');
-    incrementImage.src = './assets/images/plus.svg';
+    incrementImage.src = ImagePlus;
     incrementImage.alt = 'plus';
     cartIncrementButton.appendChild(incrementImage);
 
@@ -90,7 +105,7 @@ export function createProductDetail() {
     likeButton.classList.add('product-card__like');
 
     const likeImage = document.createElement('img');
-    likeImage.src = './assets/images/like.svg';
+    likeImage.src = ImageLike;
     likeImage.alt = 'like';
     likeButton.appendChild(likeImage);
 

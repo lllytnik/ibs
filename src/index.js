@@ -6,5 +6,6 @@ import './assets/style/product-details.css'
 import './assets/js/constant'
 import './assets/js/api'
 import './assets/js/search'
+import './assets/js/main'
 
 

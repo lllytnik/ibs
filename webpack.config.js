@@ -1,21 +1,9 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const mode = process.env.NODE_ENV || 'development';
-const devMode = mode === 'development';
-const target = devMode ? 'web' : 'browserslist';
-const devtool = devMode ? 'source-map' : undefined;
+const path = require('path');
 
 module.exports = {
-    mode,
-    target,
-    devtool,
-    devServer: {
-        port: 3000,
-        open: true,
-        hot: true,
-    },
+    mode: 'development',
     entry: {
         index: path.resolve(__dirname, 'src', 'index.js'),
         cardList: path.resolve(__dirname, 'src', 'assets', 'js', 'cardList.js'),
@@ -26,7 +14,7 @@ module.exports = {
         clean: true,
         filename: 'js/[name].[contenthash].js',
         assetModuleFilename: 'assets/[name][ext]',
-        assetModuleFilename: 'images/[name][ext]',
+
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -39,7 +27,7 @@ module.exports = {
             chunks: ['index', 'detail'],
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
+            filename: 'style/[name].[contenthash].css',
         }),
     ],
     module: {
@@ -48,8 +36,8 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader'
-                }
+                    loader: 'babel-loader',
+                },
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -59,21 +47,15 @@ module.exports = {
                 },
             },
             {
-                test: /\.(c|sa|sc)ss$/i,
-                use: [
-                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                    }
-                ],
-            },
-            {
-                test: /\.woff2?$/i,
+                test: /\.json$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'fonts/[name][ext]',
+                    filename: 'data/[name][ext]',
                 },
+            },
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
         ],
     },
