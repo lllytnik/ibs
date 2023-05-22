@@ -6,7 +6,8 @@ const id = params.get('id');
 
 const product = await getItemById(id);
 
-function createProductDetail() {
+
+export function createProductDetail() {
     const productDetailsImage = document.createElement('div');
     productDetailsImage.classList.add('product-details__image');
 
@@ -64,6 +65,7 @@ function createProductDetail() {
     const cartIncrementButton = document.createElement('button');
     cartIncrementButton.classList.add('cart-counter__btn', 'plus');
     cartIncrementButton.setAttribute('onclick', 'increment()');
+
 
     const incrementImage = document.createElement('img');
     incrementImage.src = './assets/images/plus.svg';
