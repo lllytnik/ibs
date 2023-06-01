@@ -1,0 +1,24 @@
+.searchForm {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: #323232;
+    position: relative;
+}
+
+.searchForm input {
+    border: none;
+    background-color: transparent;
+}
+
+.searchForm input:focus {
+    outline: none;
+    border-bottom: 1px solid #e97f03;
+}
+
+.searchForm button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

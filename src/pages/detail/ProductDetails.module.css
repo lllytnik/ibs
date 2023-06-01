@@ -1,15 +1,11 @@
-body {
-    margin: 0;
-}
-
-.product-details {
+.productDetails {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 24px;
 }
 
-.product-details__image {
+.productDetailsImage {
     flex: 0 0 300px;
     width: 100%;
     padding: 50px 75px;
@@ -17,20 +13,20 @@ body {
     border: 1px solid #f2f2f2;
 }
 
-.product-details__image img {
+.productDetailsImage img {
     max-width: 100%;
     height: auto;
 }
 
-.product-details__info {
+.productDetailsInfo {
     margin-left: 30px;
 }
 
-.product-details__title,
-.product-details__sub-title,
-.product-details__description,
-.product-details__detal,
-.product-details__price {
+.productDetailsTitle,
+.productDetailsSubTitle,
+.productDetailsDescription,
+.productDetailsDetal,
+.productDetailsrice {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -38,22 +34,22 @@ body {
     color: #000000;
 }
 
-.product-details__title {
+.productDetailsTitle {
     font-weight: 700;
     font-size: 24px;
 }
 
-.product-details__sub-title {
+.productDetailsDubTitle {
     font-weight: 700;
     font-size: 18px;
 }
 
-.product-details__description,
-.product-details__detal {
+.productDetailsDescription,
+.productDetailsDetal {
     font-size: 14px;
 }
 
-.product-details__price {
+.productDetailsPrice {
     font-weight: 700;
     font-size: 36px;
     line-height: 42px;
@@ -63,27 +59,27 @@ body {
     padding-right: 10px;
 }
 
-.product-details__inner {
+.productDetailsInner {
     max-width: 490px;
 }
 
-.product-details__inner,
-.product-details__wrapper-price,
-.product-details__wrapper-button {
+.productDetailsInner,
+.productDetailsWrapperPrice,
+.productDetailsWrapperButton {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
-.product-details__wrapper-price {
+.productDetailsWrapperPrice {
     max-width: 280px;
 }
 
-.product-details__wrapper-button {
+.productDetailsWrapperButton {
     max-width: 202px;
 }
 
-.product-details__button {
+.productDetailsButton {
     display: inline-block;
     padding: 10px 34px;
     font-size: 18px;
@@ -94,7 +90,7 @@ body {
     cursor: pointer;
 }
 
-.cart-counter {
+.cartCounter {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,7 +100,7 @@ body {
     border: 1px solid #323232;
 }
 
-.cart-counter__btn {
+.cartCounterBtn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,19 +113,19 @@ body {
     border: none;
 }
 
-.cart-counter__btn:hover {
+.cartCounterBtn:hover {
     background-color: #ddd;
 }
 
-.cart-counter__btn.plus {
+.plus {
     border-left: 1px solid #323232;
 }
 
-.cart-counter__btn.minus {
+.minus {
     border-right: 1px solid #323232;
 }
 
-.cart-counter__value {
+.cartCounterValue {
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
@@ -139,7 +135,7 @@ body {
     color: #000000;
 }
 
-.product-card__like {
+.productCardLike {
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -148,13 +144,13 @@ body {
 
 /* 870px */
 @media screen and (max-width: 870px) {
-    .product-details {
+    .productDetails {
         flex-wrap: wrap;
         justify-content: center;
         padding: 0 0 24px;
     }
 
-    .product-details__image {
+    .productDetailsImage {
         display: flex;
         justify-content: center;
         flex: 0 0 100%;
@@ -163,7 +159,7 @@ body {
         padding: 16px;
     }
 
-    .product-details__info {
+    .productDetailsInfo {
         padding: 0 24px;
         margin-top: 15px;
         margin-left: 0;
@@ -173,21 +169,21 @@ body {
 
 /* 540px */
 @media screen and (max-width: 540px) {
-    .product-details__inner {
+    .productDetailsInner {
         min-height: 100px;
     }
 
-    .product-details__wrapper-price {
+    .productDetailsWrapperPrice {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .product-details__wrapper-button {
+    .productDetailsWrapperButton {
         flex-direction: column-reverse;
         align-items: flex-end;
     }
 
-    .cart-counter {
+    .cartCounter {
         width: 140px;
     }
 }
