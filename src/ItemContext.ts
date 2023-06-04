@@ -26,12 +26,15 @@ interface ItemContextType {
     updateItem: (itemId: string, like: boolean) => void;
 }
 
-export const ItemContext = createContext<ItemContextType>({ items: [], updateItem: () => { } });
+export const ItemContext = createContext<ItemContextType>({
+    items: [],
+    updateItem: () => { }
+});
 
 export function useItemContext() {
     const context = useContext(ItemContext);
     if (!context) {
-        throw new Error('Error ItemContextType ');
+        throw new Error('useItemContext must be used within an ItemContextProvider');
     }
     return context;
 }
