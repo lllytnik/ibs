@@ -5,6 +5,7 @@ import { CatalogPage } from './pages/catalog/CatalogPage';
 import ProductDetail from './pages/detail/ProductDetails';
 import { ItemContext } from './ItemContext';
 import { Header } from './components/header/Header';
+import { ITEM_CARD } from './assets/js/routes';
 
 function Layout() {
   return (
@@ -51,7 +52,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<CatalogPage />} />
-                <Route path="/item/:id" element={<ProductDetail />} />
+                <Route path={ITEM_CARD} element={<ProductDetail />} />
               </Route>
             </Routes>
           </Router>
