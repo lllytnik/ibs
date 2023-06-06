@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import style from './ProductDetails.module.css';
 import { useParams } from 'react-router-dom';
 import { getItemById, Item } from '../../assets/js/api';
-import { BASE_URL_IMG } from '../../assets/js/constant';
+import { BASE_URL } from '../../assets/js/constant';
 import { IconButton } from '../../components/iconButton/IconButton';
 import iconMinus from '../../assets/images/minus.svg';
 import iconPlus from '../../assets/images/plus.svg';
@@ -39,7 +39,7 @@ const ProductDetail: React.FC = () => {
     return (
         <div className={style.productDetails}>
             <div className={style.productDetailsImage}>
-                <img src={BASE_URL_IMG + item.picture.path} alt={item.picture.alt} />
+                <img src={BASE_URL + item.picture.path} alt={item.picture.alt} />
             </div>
             <div className={style.productDetailsInfo}>
                 <h1 className={style.productDetailsTitle}>{item.name}</h1>

@@ -38,7 +38,7 @@ api.interceptors.response.use(
 
 export async function getItems(): Promise<AxiosResponse<{ content: Item[] }>> {
     try {
-        const response = await api.get<{ content: Item[] }>('');
+        const response = await api.get<{ content: Item[] }>('/item');
         return response;
     } catch (error: any) {
         console.error(error.message);
@@ -48,7 +48,7 @@ export async function getItems(): Promise<AxiosResponse<{ content: Item[] }>> {
 
 export async function getItemById(id: string): Promise<AxiosResponse<{ content: Item }>> {
     try {
-        const response = await api.get<{ content: Item }>(`/${id}`);
+        const response = await api.get<{ content: Item }>(`/item/${id}`);
         return response;
     } catch (error: any) {
         console.error(error.message);

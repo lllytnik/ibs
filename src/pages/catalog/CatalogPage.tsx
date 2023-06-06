@@ -10,6 +10,7 @@ interface CatalogPageProps { }
 export const CatalogPage: React.FC<CatalogPageProps> = () => {
     const { items, updateItem } = useContext(ItemContext);
     const location = useLocation();
+    console.log(location)
     const query = new URLSearchParams(location.search);
     const searchQuery = Object.fromEntries(query).search || '';
 

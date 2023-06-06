@@ -8,11 +8,11 @@ import { Header } from './components/header/Header';
 
 function Layout() {
   return (
-    <>
+    <div>
       <Header />
       <Outlet />
-    </>
-  )
+    </div>
+  );
 }
 
 function App() {
@@ -40,22 +40,24 @@ function App() {
       return updatedItems;
     });
   };
+
   return (
     <div>
       {items.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        <>
-
-          <ItemContext.Provider value={{ items, updateItem }}>
-            <Router>
-              <Routes>
-                <Route path="/item" element={<><Layout /><CatalogPage /></>} />
-                <Route path="/item/:id" element={<><Layout /><ProductDetail /></>} />
-              </Routes>
-            </Router>
-          </ItemContext.Provider>
-        </>
+        <ItemContext.Provider value={{ items, updateItem }}>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<CatalogPage />} />
+              </Route>
+              <Route path="/item/:id" element={<Layout />}>
+                <Route index element={<ProductDetail />} />
+              </Route>
+            </Routes>
+          </Router>
+        </ItemContext.Provider>
       )}
     </div>
   );
