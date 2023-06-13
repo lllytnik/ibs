@@ -1,16 +1,16 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ItemContext } from '../../ItemContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateItem, selectItems } from '../../store/slice/itemsSlice';
 import style from './CatalogPage.module.css';
 import { ProductCard } from '../../components/productCard/ProductCard';
-
 
 interface CatalogPageProps { }
 
 export const CatalogPage: React.FC<CatalogPageProps> = () => {
-    const { items, updateItem } = useContext(ItemContext);
+    const items = useSelector(selectItems);
+    const dispatch = useDispatch();
     const location = useLocation();
-    console.log(location)
     const query = new URLSearchParams(location.search);
     const searchQuery = Object.fromEntries(query).search || '';
 
@@ -22,7 +22,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = () => {
 
     const handleLikeClick = (itemId: string, currentLike: boolean) => {
         const updatedLike = !currentLike;
-        updateItem(itemId, updatedLike);
+        dispatch(updateItem({ itemId, like: updatedLike }));
     };
 
     return (
