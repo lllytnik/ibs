@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from './store/store';
 import { fetchItems, updateItem, selectItems } from './store/slice/itemsSlice';
 import { CatalogPage } from './pages/catalog/CatalogPage';
 import ProductDetail from './pages/detail/ProductDetails';
 import { Header } from './components/header/Header';
 import { ITEM_CARD } from './assets/js/routes';
-import { RootState, AppDispatch } from './store/store';
 
 function Layout() {
   return (
@@ -18,8 +17,8 @@ function Layout() {
 }
 
 function App() {
-  const items = useSelector(selectItems);
-  const dispatch = useDispatch<AppDispatch>();
+  const items = useAppSelector(selectItems);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchItems());

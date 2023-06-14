@@ -7,6 +7,7 @@ import { IconButton } from '../../components/iconButton/IconButton';
 import iconMinus from '../../assets/images/minus.svg';
 import iconPlus from '../../assets/images/plus.svg';
 import iconFavorite from '../../assets/images/favorite.svg';
+import { ButtonAdd } from '../../components/button/Button';
 
 const ProductDetail: React.FC = () => {
     const { id } = useParams<Record<string, string | undefined>>();
@@ -62,7 +63,7 @@ const ProductDetail: React.FC = () => {
                         </div>
                     </div>
                     <div className={style.productDetailsWrapperButton}>
-                        <button className={style.productDetailsButton}>Add to cart</button>
+                        <ButtonAdd />
                         <IconButton icon={iconFavorite} alt="cart" className={style.productCardLike} />
                     </div>
                 </div>
