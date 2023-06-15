@@ -5,8 +5,6 @@ import style from './Button.module.css';
 
 const StyledButton = styled(Button)({
     padding: '0px 15px',
-    color: '#ffffff',
-    fontSize: '18px',
     background: '#e97f03',
     borderRadius: '10px',
     border: '1px solid transparent',

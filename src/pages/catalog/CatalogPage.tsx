@@ -6,7 +6,9 @@ import { updateItem, selectItems } from '../../store/slice/itemsSlice';
 import style from './CatalogPage.module.css';
 import { ProductCard } from '../../components/productCard/ProductCard';
 
-interface CatalogPageProps { }
+interface CatalogPageProps {
+
+}
 
 export const CatalogPage: React.FC<CatalogPageProps> = () => {
     const items = useAppSelector(selectItems);
